@@ -1,0 +1,46 @@
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* padding: 10px 10px; */
+  background-color: #f1f7f4a9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img{
+    width: 35%;
+}
+.hoda{
+    display: flex;
+    gap: 50px;
+    font-size: large;
+    font-weight: 500;
+}
+.hoda a{
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+.loginSignup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.loginSignup button{
+    width: 100px;
+    height: 40px;
+    background-color: #facf68;
+    border-radius: 5px;
+    border: 1px solid rgb(160, 152, 152);
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
