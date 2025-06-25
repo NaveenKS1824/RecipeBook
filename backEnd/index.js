@@ -16,7 +16,8 @@ app.use('/api/auth',authroute);
 app.use('/api/recipes',recipeRoute);
 
 mongoose
-.connect(process.env.MONGO_URI)
+// .connect(process.env.MONGO_URI)
+.connect("mongodb+srv://srdvsekar:root@cluster0.polowls.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
     console.log("Connected to MongoDB");
     app.listen(5000, ()=>{
