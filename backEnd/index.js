@@ -8,6 +8,8 @@ const recipeRoute = require("./routes/RecipeRoutes");
 dotenv.config();
 const app = express();
 
+const port = process.env.PORT||4000;
+
 app.use(cors());
 app.use(express.json());
 
@@ -20,7 +22,7 @@ mongoose
 .connect("mongodb+srv://srdvsekar:root@cluster0.polowls.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
     console.log("Connected to MongoDB");
-    app.listen(5000, ()=>{
+    app.listen(port, ()=>{
         console.log("Sever is running in the port 5000");
     })
 })
