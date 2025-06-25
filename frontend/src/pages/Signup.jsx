@@ -16,7 +16,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
      try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", formData);
+      const res = await axios.post("https://recipebook-aosa.onrender.com/api/auth/signup", formData);
       localStorage.setItem("token", res.data.token);
       setUser(res.data.user);
       navigate("/login");

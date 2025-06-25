@@ -26,7 +26,7 @@ const AddRecipe = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/api/recipes", payload, {
+      const res = await axios.post("https://recipebook-aosa.onrender.com/api/recipes", payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

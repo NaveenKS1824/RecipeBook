@@ -14,7 +14,7 @@ const RecipeDetails = () => {
     const fetchRecipe = async (req,res) => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`http://localhost:5000/api/recipes`, {
+        const res = await axios.get(`https://recipebook-aosa.onrender.com/api/recipes`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
