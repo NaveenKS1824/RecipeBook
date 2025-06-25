@@ -4,6 +4,7 @@ import "./allrecipe.css"
 import recipe1 from "../assets/recipe1.jpg"
 import recipe2 from "../assets/recipe2.jpg"
 import axios from "axios";
+import Loading from "../component/Loading";
 
 const dummyData = [
   {
@@ -66,7 +67,7 @@ const AllRecipes = () => {
     fetchRecipes();
   }, []);
 
-  if (loading) return <p>Loading recipes...</p>;
+  if (loading) return <div style={{width:"100%",height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Loading/></div>
   if (error) return <p>{error}</p>;
   return (
     <div className="recipe-grid">
