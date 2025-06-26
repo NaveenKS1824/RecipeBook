@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-import "./editrecipe.css"; 
+import "./editRecipe.css"; 
 import { AuthContext } from "../context/AuthContext";
 
 const EditRecipe = () =>{
