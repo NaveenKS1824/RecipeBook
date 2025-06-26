@@ -53,6 +53,9 @@
 
 .recipe-actions {
   text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .like-btn {

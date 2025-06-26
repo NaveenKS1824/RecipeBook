@@ -1,10 +1,25 @@
 import React from "react";
 import "./RecipeCard.css";
 import {Link} from "react-router-dom";
-const RecipeCard = ({ recipe }) => {
+import axios from "axios";
+const RecipeCard = ({ recipe, fetchRecipes }) => {
+  const handleDelete = async() =>{
+    const token = localStorage.getItem("token");
+    try{
+      const res = await axios.delete(`https://recipebook-aosa.onrender.com/api/recipes/${recipe._id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+        console.log(recipe._id);
+        fetchRecipes();
+    }catch(err){
+      console.log(err);
+    }
+  }
   return (
     <>
-    <Link to={`/recipes/${recipe._id}`} className="recipe-card-link">
+    
     <div className="recipe-card">
       <img src={recipe.image} alt={recipe.title} className="recipe-img" />
       <div className="recipe-content">
@@ -18,11 +33,12 @@ const RecipeCard = ({ recipe }) => {
           ))}
         </div>
         <div className="recipe-actions">
-          <button className="like-btn">View</button>
+          <Link to={`/recipes/${recipe._id}`} className="recipe-card-link"><button className="like-btn">View</button></Link>
+          <Link onClick={handleDelete}className="recipe-card-link"><button className="like-btn">Delete</button></Link>
         </div>
       </div>
     </div>
-    </Link>
+    
     </>
   );
 };

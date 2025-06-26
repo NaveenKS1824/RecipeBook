@@ -13,7 +13,8 @@ const AllRecipes = () => {
     const [loading,setLoading] = useState(true);
     const [error,setError] = useState(null);
     const [search,setSearch] = useState("");
-     useEffect(() => {
+
+
     const fetchRecipes = async () => {
       try {
         const token = localStorage.getItem("token"); // or sessionStorage based on your app
@@ -30,9 +31,10 @@ const AllRecipes = () => {
         setLoading(false);
       }
     };
-
-    fetchRecipes();
-  }, []);
+    
+     useEffect(() => {
+        fetchRecipes();
+      }, []);
 
   if (loading) return <div style={{width:"100%",height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Loading/></div>
   if (error) return <p>{error}</p>;
@@ -50,7 +52,7 @@ const AllRecipes = () => {
     </div>
     <div className="recipe-grid">
       {recipes.filter((i)=>search!==''?i.title.toLowerCase().includes(search.toLowerCase()):i).map((recipe, index) => (
-        <RecipeCard key={index} recipe={recipe} />
+        <RecipeCard key={index} recipe={recipe} fetchRecipes={fetchRecipes} />
       ))}
     </div>
     </>
