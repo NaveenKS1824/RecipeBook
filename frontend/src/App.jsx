@@ -11,6 +11,7 @@ import AllRecipes from './pages/AllRecipe'
 import AddRecipe from './pages/Addrecepie'
 import PrivateRoute from './pages/PrivateRoute'
 import RecipeDetails from './pages/RecipeDetails'
+import EditRecipe from './pages/EditRecipe'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +31,7 @@ function App() {
             <AddRecipe/>
           </PrivateRoute>}></Route>
           <Route path="/recipes/:id" element={<PrivateRoute><RecipeDetails /></PrivateRoute>} />
+          <Route path="/recipes/edit/:id" element={<PrivateRoute><EditRecipe/></PrivateRoute>} />
         </Routes>
       </Router>
     </>

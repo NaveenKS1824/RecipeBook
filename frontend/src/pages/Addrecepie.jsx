@@ -16,6 +16,7 @@ const AddRecipe = () => {
     const token = localStorage.getItem("token"); 
     console.log(token);
     const userId = localStorage.getItem("userId");
+    console.log(userId);
     const payload = {
       title,
       ingredients: ingredients.split(",").map(item => item.trim()),

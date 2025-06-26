@@ -39,8 +39,93 @@
     border-radius: 5px;
     border: 1px solid rgb(160, 152, 152);
 }
-.nav-links a {
+/* .nav-link {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  
 }
+.navLink{
+  transition: 0.01s;
+}
+.navLink:hover{
+  border-bottom:2px solid orange;
+} */
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  padding-bottom: 5px;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: orange;
+  transition: width 0.3s ease-in-out;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.navLink.active::after {
+  width: 100%;
+}
+.hamburger{
+  display: none;
+  flex-direction: column-reverse;
+  cursor: pointer;
+  gap: 5px;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(5, 5, 5);
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+@media (max-width: 450px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .hoda, .loginSignup {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #dcdcdc;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .hoda.open, .loginSignup.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .navLink, .loginSignup button {
+    color: rgb(4, 4, 4);
+    /* margin-top: 80px; */
+    text-decoration: none;
+    padding: 10px;
+    border: none;
+    background: none;
+    font-size: 1rem;
+  }
+
+  .loginSignup button {
+    background-color: #facf68;
+    /* margin: 0.5rem; */
+  }
+}
+

@@ -6,11 +6,15 @@ import g4 from "../assets/g4.jpg";
 import g5 from "../assets/g5.jpg";
 import g6 from "../assets/g6.jpg";
 import g7 from "../assets/g7.jpg";
+import g8 from "../assets/g8.jpg";
+import g9 from "../assets/g9.jpg";
+import g10 from "../assets/g10.jpg";
+
 import "./gallery.css";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const Gallery = () =>{
-    const images = [g1,g5,g2,g4,g7,g3,g5,g7];
+    const images = [g1,g5,g2,g4,g7,g3,g5,g9];
     return(
         <div className="gallery-container">
             <button className="gallery-btn">

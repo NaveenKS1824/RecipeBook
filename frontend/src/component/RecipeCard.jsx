@@ -18,7 +18,7 @@ const RecipeCard = ({ recipe }) => {
           ))}
         </div>
         <div className="recipe-actions">
-          <button className="like-btn">Save</button>
+          <button className="like-btn">View</button>
         </div>
       </div>
     </div>

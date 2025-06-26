@@ -5,47 +5,14 @@ import recipe1 from "../assets/recipe1.jpg"
 import recipe2 from "../assets/recipe2.jpg"
 import axios from "axios";
 import Loading from "../component/Loading";
+import { IoSearchOutline } from "react-icons/io5";
 
-const dummyData = [
-  {
-    image: recipe1,
-    title: "Spaghetti Bolognese",
-    description: "A classic Italian pasta dish with rich meat sauce.",
-    tags: ["Italian", "Dinner", "Pasta"]
-  },
-  {
-    image:recipe2,
-    title: "Vegan Avocado Toast",
-    description: "Healthy toast with smashed avocado and chili flakes.",
-    tags: ["Vegan", "Breakfast"]
-  },{
-    image: recipe1,
-    title: "Spaghetti Bolognese",
-    description: "A classic Italian pasta dish with rich meat sauce.",
-    tags: ["Italian", "Dinner", "Pasta"]
-  },
-  {
-    image:recipe2,
-    title: "Vegan Avocado Toast",
-    description: "Healthy toast with smashed avocado and chili flakes.",
-    tags: ["Vegan", "Breakfast"]
-  },{
-    image: recipe1,
-    title: "Spaghetti Bolognese",
-    description: "A classic Italian pasta dish with rich meat sauce.",
-    tags: ["Italian", "Dinner", "Pasta"]
-  },
-  {
-    image:recipe2,
-    title: "Vegan Avocado Toast",
-    description: "Healthy toast with smashed avocado and chili flakes.",
-    tags: ["Vegan", "Breakfast"]
-  }
-];
+
 const AllRecipes = () => {
     const [recipes,setRecipes] = useState([]);
     const [loading,setLoading] = useState(true);
     const [error,setError] = useState(null);
+    const [search,setSearch] = useState("");
      useEffect(() => {
     const fetchRecipes = async () => {
       try {
@@ -70,11 +37,23 @@ const AllRecipes = () => {
   if (loading) return <div style={{width:"100%",height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Loading/></div>
   if (error) return <p>{error}</p>;
   return (
+    <>
+    <div className="search-content">
+        
+        <input 
+        type="text" 
+        placeholder="        Enter the text her"
+        value={search}
+        onChange={(e)=>setSearch(e.target.value)}
+        />
+        {!search && <IoSearchOutline className="icon"/>}
+    </div>
     <div className="recipe-grid">
-      {recipes.map((recipe, index) => (
+      {recipes.filter((i)=>search!==''?i.title.toLowerCase().includes(search.toLowerCase()):i).map((recipe, index) => (
         <RecipeCard key={index} recipe={recipe} />
       ))}
     </div>
+    </>
   );
 };
 
